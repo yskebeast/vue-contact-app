@@ -2,15 +2,12 @@
    <div>
       <v-app-bar color="blue" dark elevation="5">
          <div>
-            <h4 @click="handleHome">
-               <!-- <router-link class="router-link" to="/">オシリス社</router-link> -->
-               オシリス社
-            </h4>
+            <h4 @click="handleHome">オシリス社</h4>
          </div>
          <v-spacer></v-spacer>
          <v-app-bar-nav-icon @click="OpenMenu = !OpenMenu"></v-app-bar-nav-icon>
       </v-app-bar>
-      <v-navigation-drawer v-model="OpenMenu" absolute right>
+      <v-navigation-drawer v-model="OpenMenu" absolute temporary right>
          <v-list>
             <v-list-item-group>
                <v-list-item class="v-list-item"
@@ -30,6 +27,27 @@
             </v-list-item-group>
          </v-list>
       </v-navigation-drawer>
+
+      <!-- <v-app>
+         <div>
+            <v-app-bar >
+               <v-app-bar-nav-icon
+                  v-on:click.stop="drawer = !drawer"
+               ></v-app-bar-nav-icon>
+            </v-app-bar>
+
+            <v-navigation-drawer v-model="drawer" absolute temporary>
+               <v-list>
+                  <v-list-item-group>
+                     <v-list-item><a href="#">Menu Item1</a></v-list-item>
+                     <v-list-item><a href="#">Menu Item2</a></v-list-item>
+                     <v-list-item><a href="#">Menu Item3</a></v-list-item>
+                     <v-list-item><a href="#">Menu Item4</a></v-list-item>
+                  </v-list-item-group>
+               </v-list>
+            </v-navigation-drawer>
+         </div>
+      </v-app> -->
    </div>
 </template>
 
@@ -46,6 +64,7 @@ export default {
    data() {
       return {
          OpenMenu: false,
+         drawer: false,
       };
    },
    methods: {
